@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Movies - Index";
+}
+
+<h1>Movies Index</h1>
+<a asp-action="Create"> Add New Movie</a>
+
+<table>
+    <tehead>
+        <tr>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>IMDB</th>
+            <th>Price</th>
+        </tr>
+    </tehead>
+
+    <tbody>
+        @foreach (string[] Movie in ViewBag.Movies)
+        {
+        <tr>
+            <td> @Movie[0]</td>
+            <td> @Movie[1]</td>
+            <td> @Movie[2]</td>
+            <td> @Movie[3]</td>
+        </tr>
+        }
+
+    </tbody>
+</table> 

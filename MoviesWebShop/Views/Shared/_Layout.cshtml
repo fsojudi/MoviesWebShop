@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/css/site.css" rel="stylesheet" asp-append-version="true" />
+
+</head>
+<body>
+    <header>
+        <h3>Logo</h3>
+        <nav>
+            <ul>
+                <li>
+                    <a asp-controller="Home" asp-action="Index">Home</a>
+                </li>
+                <li>
+                <a asp-controller="Movies" asp-action="Index">Movies</a>
+                 </li>
+
+            </ul>
+        </nav>
+    </header>
+    <div>
+        @RenderBody()
+    </div>
+    <footer>
+        <p>&copy;Sara&Fatemeh</p>
+    </footer>
+</body>
+</html>

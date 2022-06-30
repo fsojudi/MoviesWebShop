@@ -1,0 +1,21 @@
+﻿@{
+    ViewData["Title"] = "Movies - Add new Movie";
+}
+<h1> Add New Movie</h1>
+
+<form asp-action="create" method="post">
+    <label for="movieName"> Movie Name</label>
+    <input type="text" name="movieName" id="movieName" required />
+
+    <label for="genre"> Release date</label>
+    <input type="text" name="genre" id="genre" required />
+
+    <label for="iMDB"> IMDB</label>
+    <input type="number" name="iMDB" id="iMDB" min="0" step="1" required />
+
+    <label for="price"> Price</label>
+    <input type="number" name="price" id="price" min="0" step="10" required /><span>kr</span>
+
+    <button type="submit"> Create Movie</button>
+
+</form>
