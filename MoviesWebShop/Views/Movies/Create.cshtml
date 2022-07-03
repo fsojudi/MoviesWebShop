@@ -3,19 +3,34 @@
 }
 <h1> Add New Movie</h1>
 
+@if (ViewBag.ExceptionMsg!=null)
+{
+<h4 class=" danger">@ViewBag.ExceptionMsg</h4>
+
+}
+
 <form asp-action="create" method="post">
     <label for="movieName"> Movie Name</label>
-    <input type="text" name="movieName" id="movieName" required />
+    <input type="text" name="movieName" id="movieName" value=" @ViewBag.MovieName"  />
 
-    <label for="genre"> Release date</label>
-    <input type="text" name="genre" id="genre" required />
+    <label for="genre"> Genre</label>
+    <input type="text" name="genre" id="genre"  list="genresList" value=" @ViewBag.Genre"  />
 
     <label for="iMDB"> IMDB</label>
-    <input type="number" name="iMDB" id="iMDB" min="0" step="1" required />
+    <input type="number" name="iMDB" id="iMDB" min="0" step="1" value=" @ViewBag.IMDB" />
 
     <label for="price"> Price</label>
-    <input type="number" name="price" id="price" min="0" step="10" required /><span>kr</span>
+    <input type="number" name="price" id="price" min="0" step="10" value=" @ViewBag.Price  "  /><span>kr</span>
 
     <button type="submit"> Create Movie</button>
+
+
+    <datalist id="genresList">
+        @foreach (string genre in ViewBag.Genres)
+        {
+            <option value="@genre ">@genre </option>
+
+        }
+    </datalist>
 
 </form>

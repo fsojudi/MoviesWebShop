@@ -64,6 +64,7 @@ body {
   /* Margin bottom by footer height */
   margin-left: auto;
   margin-right: auto;
+  width:80vw;
 }
 .footer {
   position: absolute;
@@ -71,4 +72,10 @@ body {
   width: 100%;
   white-space: nowrap;
   line-height: 60px; /* Vertically center the text there */
+}
+
+.danger{
+    background-color:red;
+    color: white;
+
 }

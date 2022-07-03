@@ -23,6 +23,15 @@ namespace MoviesWebShop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+           {
+               options.IdleTimeout = TimeSpan.FromMinutes(3);
+               options.Cookie.HttpOnly = true;
+               options.Cookie.IsEssential = true;
+           });
+
             services.AddMvc();
         }
 
@@ -43,11 +52,20 @@ namespace MoviesWebShop
             app.UseStaticFiles();
 
             app.UseRouting();
+           
+            app.UseSession();
 
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "AddMovieCreate",
+                    pattern: " /Movies/AddNewMovies",
+                    defaults: new { controller = "Movies", action = "Create" }
+                    );
+
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
