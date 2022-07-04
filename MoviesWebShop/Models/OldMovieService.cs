@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 namespace MoviesWebShop.Models
 {
     
-    public class MovieService
+    public class OldMovieService
     {
         static List<string[]> MoviesStorage;
         static List<string> genreStorage;
 
-        public MovieService ()
+        public OldMovieService ()
         {
             if (MoviesStorage == null)
             {

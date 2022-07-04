@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Movie>
+@{
     ViewData["Title"] = "Movies - Index";
 }
 
@@ -16,13 +17,13 @@
     </tehead>
 
     <tbody>
-        @foreach (string[] Movie in ViewBag.Movies)
+        @foreach (Movie movie in Model )
         {
         <tr>
-            <td> @Movie[0]</td>
-            <td> @Movie[1]</td>
-            <td> @Movie[2]</td>
-            <td> @Movie[3] kr</td>
+            <td> @movie.MovieName   </td>
+            <td> @movie.Genre   </td>
+            <td> @movie.IMDB  </td>
+            <td> @movie.Price kr   </td>
         </tr>
         }
 

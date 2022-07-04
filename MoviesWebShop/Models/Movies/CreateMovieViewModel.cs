@@ -22,5 +22,7 @@ namespace MoviesWebShop.Models.Movies
         [Range (0,int.MaxValue)]
         public int Price { get; set; }
 
+        public List<string> GenreList { get; set; }
+
     }
 }

@@ -7,9 +7,10 @@ namespace MoviesWebShop.Models.Movies
 {
     interface IMovieService
     {
-         List<Movie > GetMovies();
+         List<Movie> GetMovies();
         List<string> GetGenre();
         Movie CreateMovie(CreateMovieViewModel creatMovie);
+        Movie GetById(int id);
 
     }
 }
