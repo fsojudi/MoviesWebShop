@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+﻿ <!DOCTYPE html>
 
 <html>
 <head>
@@ -17,8 +17,8 @@
                     <a asp-controller="Home" asp-action="Index">Home</a>
                 </li>
                 <li>
-                <a asp-controller="Movies" asp-action="Index">Movies</a>
-                 </li>
+                    <a asp-controller="Movies" asp-action="Index">Movies</a>
+                </li>
 
             </ul>
         </nav>
@@ -29,5 +29,9 @@
     <footer>
         <p>&copy;Sara&Fatemeh</p>
     </footer>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false) 
 </body>
 </html>

@@ -34,27 +34,18 @@ namespace MoviesWebShop.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create( string movieName, string genre, string iMDB,string price)
+        public IActionResult Create(CreateMovieViewModel createMovie)
         {
-            try
+            if (ModelState .IsValid )
             {
-                _movieService.Create(movieName, genre, iMDB, price);
-
-                return RedirectToAction("Index");
-
-            }
-            catch (ArgumentException exeptionData)
-            {
-
-                ViewBag.ExceptionMsg = exeptionData.Message; 
+                _movieService.CreateMovie(createMovie);
+                return RedirectToAction("Index"); 
             }
 
-            ViewBag.MovieName = movieName;
-            ViewBag.Genre = genre;
-            ViewBag.IMDB = iMDB;
-            ViewBag.Price = price;
-            ViewBag.Genres = _movieService.GetGenre();
-            return View();
+            createMovie.GenreList =_movieService.GetGenre();
+
+            return View(createMovie);
+            
 
 
             
