@@ -17,10 +17,28 @@
     </tehead>
 
     <tbody>
-        @foreach (Movie movie in Model )
+        @foreach (Movie movie in Model)
         {
-        <partial name="../Shared/_MovieDetails.cshtml" model="movie" />
+            @*<partial name="../Shared/_MovieDetails.cshtml" model="movie" />*@
+            <partial name=" _MovieDetails" model="movie" />
         }
 
     </tbody>
-</table> 
+
+
+</table>
+
+<div>
+
+    <div>Name</div>
+    <div>Genre</div>
+    <div>IMDB</div>
+    <div>Price</div>
+
+</div>
+
+@foreach (Movie movie in Model)
+{
+    @*<partial name="../Shared/_MovieDetails2.cshtml" model="movie" />*@
+    <partial name="_MovieDetails2" model="movie" />
+}

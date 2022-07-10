@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MoviesWebShop.Models.Movies
+namespace MoviesWebShop.Models.ViewModels
 {
     public class CreateMovieViewModel
     {

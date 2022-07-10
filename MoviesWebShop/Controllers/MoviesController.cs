@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MoviesWebShop.Models;
-using MoviesWebShop.Models.Movies;
+using MoviesWebShop.Models.Services;
+using MoviesWebShop.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,14 +23,14 @@ namespace MoviesWebShop.Controllers
         public IActionResult Index()
         {
            
-            return View(_movieService.GetMovies());
+            return View(_movieService.GetAll());
         }
 
         [HttpGet]
         public IActionResult Create()
         {
             CreateMovieViewModel createMovie = new CreateMovieViewModel() ;
-            createMovie.GenreList = _movieService.GetGenre();
+            //createMovie.GenreList = _movieService.GetGenre();
             return View(createMovie );
         }
 
@@ -38,11 +39,11 @@ namespace MoviesWebShop.Controllers
         {
             if (ModelState .IsValid )
             {
-                _movieService.CreateMovie(createMovie);
+                _movieService.Add(createMovie);
                 return RedirectToAction("Index"); 
             }
 
-            createMovie.GenreList =_movieService.GetGenre();
+            //createMovie.GenreList =_movieService.GetGenre();
 
             return View(createMovie);
             

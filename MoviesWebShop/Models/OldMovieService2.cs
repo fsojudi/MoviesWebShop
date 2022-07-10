@@ -1,17 +1,18 @@
-﻿using System;
+﻿using MoviesWebShop.Models.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace MoviesWebShop.Models.Movies
+namespace MoviesWebShop.Models.Services
 {
-    public class MovieService : IMovieService
+    public class OldMovieService2 
     {
         static int idCounter = 0;
         static List<Movie> movieStorage = new List<Movie>();
         static List<string> genreStorage = new List<string>();
 
-        public MovieService()
+        public OldMovieService2()
         {
 
             if (genreStorage .Count == 0)
