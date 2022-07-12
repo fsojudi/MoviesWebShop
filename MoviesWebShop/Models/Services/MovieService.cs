@@ -10,6 +10,8 @@ namespace MoviesWebShop.Models.Services
     public class MovieService : IMovieService
     {
         IMovieRepo _movieRepo;
+
+        
         public Movie Add(CreateMovieViewModel movie)
         {
             if (string.IsNullOrWhiteSpace(movie.MovieName))

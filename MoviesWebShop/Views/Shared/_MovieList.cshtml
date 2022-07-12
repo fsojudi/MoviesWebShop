@@ -1,0 +1,23 @@
+﻿@model List<Movie>
+
+<table>
+    <tehead>
+        <tr>
+            <th>Name</th>
+            <th>Genre</th>
+            <th>IMDB</th>
+            <th>Price</th>
+        </tr>
+    </tehead>
+
+    <tbody>
+        @foreach (Movie movie in Model)
+        {
+            @*<partial name="../Shared/_MovieDetails.cshtml" model="movie" />*@
+            <partial name=" _MovieDetails" model="movie" />
+        }
+
+    </tbody>
+
+
+</table> 

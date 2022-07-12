@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MoviesWebShop.Models;
+using MoviesWebShop.Models.Repos;
 using MoviesWebShop.Models.Services;
 using MoviesWebShop.Models.ViewModels;
 using System;
@@ -25,6 +26,20 @@ namespace MoviesWebShop.Controllers
            
             return View(_movieService.GetAll());
         }
+
+        public IActionResult Ajax()
+        {
+
+            return View();
+        }
+
+        public IActionResult GetMovie()
+        {
+
+            return PartialView(_movieService.GetAll());
+        }
+
+
 
         [HttpGet]
         public IActionResult Create()
