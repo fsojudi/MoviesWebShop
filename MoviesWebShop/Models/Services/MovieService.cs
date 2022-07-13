@@ -1,17 +1,23 @@
-﻿using MoviesWebShop.Models.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using MoviesWebShop.Models.Repos;
+using MoviesWebShop.Models.ViewModels;
 
 namespace MoviesWebShop.Models.Services
 {
     public class MovieService : IMovieService
     {
-        IMovieRepo _movieRepo;
+         IMovieRepo _movieRepo;
 
-        
+        public MovieService(IMovieRepo movieRepo)
+        {
+            _movieRepo = movieRepo;
+         
+        }
+
+
         public Movie Add(CreateMovieViewModel movie)
         {
             if (string.IsNullOrWhiteSpace(movie.MovieName))

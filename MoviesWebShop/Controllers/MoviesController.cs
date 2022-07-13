@@ -14,10 +14,10 @@ namespace MoviesWebShop.Controllers
     {
 
         IMovieService _movieService;
-        public MoviesController()
+        public MoviesController(IMovieService movieService)
         {
-            _movieService = new MovieService() ;
-
+            _movieService = movieService;
+           
         }
 
         [HttpGet]
@@ -52,19 +52,49 @@ namespace MoviesWebShop.Controllers
         [HttpPost]
         public IActionResult Create(CreateMovieViewModel createMovie)
         {
-            if (ModelState .IsValid )
+            if (ModelState.IsValid)
             {
                 _movieService.Add(createMovie);
-                return RedirectToAction("Index"); 
+                return RedirectToAction("Index");
             }
 
             //createMovie.GenreList =_movieService.GetGenre();
 
             return View(createMovie);
-            
+        }
 
 
-            
+
+
+ //**********************************// AJAX //*******************************************//
+            public IActionResult PartialViewMovies()
+            {
+                return PartialView("_MovieList", _movieService.GetAll());
+            }
+            [HttpPost]
+            public IActionResult PartialViewDetails(int id)
+            {
+                Movie  movie = _movieService.FindById(id);
+                if (movie != null)
+                {
+                    return PartialView("_MovieDetails", movie);
+                }
+                return NotFound();
+            }
+            public IActionResult AjaxDelete(int id)
+            {
+                Movie  movie = _movieService.FindById(id);
+                if (movie != null)
+                {
+                    _movieService.Remove(id);
+                    return PartialView("_MovieList", _movieService.GetAll());
+                }
+                return NotFound();
+            }
+
+
+
+
         }
     }
-}
+

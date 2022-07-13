@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h1>Movie Page with Ajax</h1>
+
+<button onclick="getMovie()">Get Movie</button>
+<button onclick="ajaxMovieList('@Url.Action("PartialViewMovie", "Movies")')">Get Movie list</button>
+
+<div></div>
+
+<br />
+<div>
+    <input type="number" name="id" id="idInput" placeholder="Movie Id" />
+</div>
+<button class="btn-dark" onclick="ajaxPost('@Url.Action("PartialViewDetails","Movies")', 'idInput')">Details</button>
+<button class="btn-dark" onclick="ajaxPost('@Url.Action("AjaxDelete","Movies")', 'idInput')">Delete</button>
+<br />
+
+<div id="result"></div>
+<hr />
+
+<div id="spaPeopleList"></div>
+
+<script>
+    window.addEventListener("load", () => {
+        console.log("load triggerd");
+        getSpaWithAjax('AjaxMovies/SpaMovieList', 'spaMovieList');/* For loding ajax functions*/
+    });
+        
+</script>
+

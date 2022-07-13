@@ -1,12 +1,12 @@
-﻿using MoviesWebShop.Models.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MoviesWebShop.Models.ViewModels;
 
 namespace MoviesWebShop.Models.Services
 {
-    interface IMovieService
+    public interface IMovieService
     {
         Movie Add(CreateMovieViewModel movie);
         List<Movie> GetAll();

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace MoviesWebShop.Models.Repos
 {
-    interface IMovieRepo
+    public interface IMovieRepo
     {
         Movie Create(Movie movie);
         List<Movie> GetAll();
